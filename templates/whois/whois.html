@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cenayang Scanner</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="p-2">
+
+<div class="bg-white">
+    <header class="absolute inset-x-0 top-0 z-50">
+        <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+            <div class="flex lg:flex-1">
+                <a href="/" class="-m-1.5 p-1.5">
+                    <span class="sr-only">Cenayang Scanner</span>
+                    <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
+                </a>
+            </div>
+            <div class="flex lg:hidden">
+                <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
+            </div>
+            <div class="hidden lg:flex lg:gap-x-12 mx-auto">
+                <a href="/about" class="text-sm font-semibold leading-6 text-gray-800">About</a>
+                <a href="/services" class="text-sm font-semibold leading-6 text-gray-800">Services</a>
+            </div>
+            <!--<div class="hidden lg:flex lg:flex-1 lg:justify-end">
+                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
+            </div> -->
+        </nav>
+    </header>
+</div>
+
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div class="w-64 bg-gray-700">
+          <div class="flex items-center justify-center h-16 bg-gray-800">
+            <span class="text-white text-lg font-bold">Menu</span>
+          </div>
+          <ul class="mt-8">
+           
+            <li>
+              <a href="/nmap" class="flex items-center px-4 py-2 text-white hover:bg-gray-800">
+                <svg class="w-5 h-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M10 12a2 2 0 100-4 2 2 0 000 4zM2 12a2 2 0 100-4 2 2 0 000 4zM18 12a2 2 0 100-4 2 2 0 000 4z" />
+                </svg>
+                <span>Nmap</span>
+              </a>
+            </li>
+            <li>
+              <a href="/whois" class="flex items-center px-4 py-2 text-white hover:bg-gray-800">
+                <svg class="w-5 h-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M10 12a2 2 0 100-4 2 2 0 000 4zM2 12a2 2 0 100-4 2 2 0 000 4zM18 12a2 2 0 100-4 2 2 0 000 4z" />
+                </svg>
+                <span>Whois</span>
+              </a>
+            </li>
+            <li>
+                <a href="/ping" class="flex items-center px-4 py-2 text-white hover:bg-gray-800">
+                    <svg class="w-5 h-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M10 12a2 2 0 100-4 2 2 0 000 4zM2 12a2 2 0 100-4 2 2 0 000 4zM18 12a2 2 0 100-4 2 2 0 000 4z" />
+                    </svg>
+                    <span>Ping</span>
+                </a>
+            </li>
+              <li>
+                  <a href="/shodan" class="flex items-center px-4 py-2 text-white hover:bg-gray-800">
+                      <svg class="w-5 h-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                          <path d="M10 12a2 2 0 100-4 2 2 0 000 4zM2 12a2 2 0 100-4 2 2 0 000 4zM18 12a2 2 0 100-4 2 2 0 000 4z" />
+                      </svg>
+                      <span>Shodan</span>
+                  </a>
+              </li>
+            <template x-for="item in menuItems" :key="item.label">
+              <li>
+                <a href="#" :class="{ 'active': activeMenu === item.label }"
+                  class="flex items-center px-4 py-2 text-gray-400 hover:bg-gray-800"
+                  @click="setActiveMenu(item.label)">
+                  <svg x-bind:class="item.icon" viewBox="0 0 20 20" fill="currentColor">
+                    <path
+                      d="M10 12a2 2 0 100-4 2 2 0 000 4zM2 12a2 2 0 100-4 2 2 0 000 4zM18 12a2 2 0 100-4 2 2 0 000 4z" />
+                  </svg>
+                  <span x-text="item.label"></span>
+                </a>
+              </li>
+            </template>
+          </ul>
+        </div>
+    
+        <!-- Konten Utama -->
+        <div class="flex flex-col flex-1">
+          <!-- Tambahkan konten utama di sini -->
+          <div class="p-8">
+            <div class="container">
+                <form action="/whois" method="post">
+                    <label for="target" class="block mb-2 pt-4 font-bold">IP or Domain:</label>
+                    <input type="text" id="domain" name="domain" class="w-64 px-2 py-1 border rounded" required>
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Start Scan</button>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+</body>
+</html>
