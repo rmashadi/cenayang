@@ -13,7 +13,6 @@ import (
 	"time"
 
 	"github.com/labstack/echo/v4"
-	_ "github.com/labstack/echo/v4"
 
 	"github.com/go-ping/ping"
 
@@ -198,7 +197,7 @@ func main() {
 			OpenPorts []string `json:"ports"`
 		}
 
-		url := fmt.Sprintf("https://api.shodan.io/shodan/host/%s?key=(Your API Key)", target)
+		url := fmt.Sprintf("https://api.shodan.io/shodan/host/%s?key=(Your Shodan Keys)", target)
 
 		response, err := http.Get(url)
 
