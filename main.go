@@ -217,15 +217,12 @@ func main() {
 		if err != nil {
 			return err
 		}
-
-		// fmt.Println(shodanRes)
-		// fmt.Println(body)
-
+		
 		tmpl := template.Must(template.ParseFiles("templates/shodan/shodan_result.html"))
 		return c.HTML(http.StatusOK, renderTemplate(tmpl, shodanRes))
 	})
 
-	e.Logger.Fatal(e.Start(":8082"))
+	e.Logger.Fatal(e.Start(":5000"))
 }
 
 func renderTemplate(tmpl *template.Template, data interface{}) string {
