@@ -9,7 +9,7 @@
 
 </body>
 
-<body class="p-2">
+<body>
 
 <div class="bg-white">
     <header class="absolute inset-x-0 top-0 z-50">
@@ -95,22 +95,21 @@
                 </form>
             </div>
 
-            <h2 class="text-2xl font-bold mt-8">Ping ICMP Results</h2>
-            <h1>Ping Result</h1>
+            <h2 class="text-2xl font-bold mt-8">Ping ICMP Details</h2> <br>
             <p>Address: {{.Addr}}</p>
             <p>Packets Sent: {{.PacketsSent}}</p>
             <p>Packets Received: {{.PacketsRecv}}</p>
             <p>Packet Loss: {{.PacketLoss}}%</p>
+            <br>
             <p>Min RTT: {{.MinRtt}}</p>
             <p>Avg RTT: {{.AvgRtt}}</p>
             <p>Max RTT: {{.MaxRtt}}</p>
             <p>StdDev RTT: {{.StdDevRtt}}</p>
-            <p>Result: {{.Result}}</p>
 
-            <h2>Packets</h2>
+            <h2 class="text-2xl font-bold mt-8">Packets Results</h2>
             {{range .Packets}}
-            <p>{{.}}</p>
-            {{end}}
+            <p class="text-green-500">{{.}}</p>
+            {{ end }}
         </div>
     </div>
 </div>

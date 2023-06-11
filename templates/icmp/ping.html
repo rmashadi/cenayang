@@ -5,7 +5,7 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body class="p-2">
+<body>
 
 <div class="bg-white">
     <header class="absolute inset-x-0 top-0 z-50">
@@ -108,38 +108,38 @@
         </div>
     </div>
 
-    <script>
-        document.getElementById('pingForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form submission
+<!--    <script>-->
+<!--        document.getElementById('pingForm').addEventListener('submit', function(event) {-->
+<!--            event.preventDefault(); // Prevent form submission-->
 
-            // Get the domain input value
-            var domainInput = document.getElementById('domain');
-            var domain = domainInput.value;
+<!--            // Get the domain input value-->
+<!--            var domainInput = document.getElementById('domain');-->
+<!--            var domain = domainInput.value;-->
 
-            // Create a new XMLHttpRequest object
-            var xhr = new XMLHttpRequest();
+<!--            // Create a new XMLHttpRequest object-->
+<!--            var xhr = new XMLHttpRequest();-->
 
-            // Set up the request
-            xhr.open('POST', '/pings', true);
-            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+<!--            // Set up the request-->
+<!--            xhr.open('POST', '/pings', true);-->
+<!--            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');-->
 
-            // Set up the callback function when the request completes
-            xhr.onload = function() {
-                if (xhr.status === 200) {
-                    // Request was successful
-                    var response = xhr.responseText;
-                    // Handle the response (e.g., update the UI with the results)
-                    console.log(response);
-                } else {
-                    // Request failed
-                    console.log('Request failed. Status:', xhr.status);
-                }
-            };
+<!--            // Set up the callback function when the request completes-->
+<!--            xhr.onload = function() {-->
+<!--                if (xhr.status === 200) {-->
+<!--                    // Request was successful-->
+<!--                    var response = xhr.responseText;-->
+<!--                    // Handle the response (e.g., update the UI with the results)-->
+<!--                    console.log(response);-->
+<!--                } else {-->
+<!--                    // Request failed-->
+<!--                    console.log('Request failed. Status:', xhr.status);-->
+<!--                }-->
+<!--            };-->
 
-            // Send the request with the domain value
-            xhr.send('domain=' + encodeURIComponent(domain));
-        });
-    </script>
+<!--            // Send the request with the domain value-->
+<!--            xhr.send('domain=' + encodeURIComponent(domain));-->
+<!--        });-->
+<!--    </script>-->
 </div>
 
 </body>
