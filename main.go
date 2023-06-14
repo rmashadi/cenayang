@@ -217,7 +217,7 @@ func main() {
 		if err != nil {
 			return err
 		}
-		
+
 		tmpl := template.Must(template.ParseFiles("templates/shodan/shodan_result.html"))
 		return c.HTML(http.StatusOK, renderTemplate(tmpl, shodanRes))
 	})
