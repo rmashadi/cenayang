@@ -5,7 +5,7 @@ A Simple Host or IP Scanner Tool with Go Language.
 - Nmap
 - Whois
 - Ping ICMP
-- virus Total (On Progress Developtment)
+- Virus Total (On Progress Developtment)
 - Shodan (*required API Key)
 
 ## Supported Operating Systems
